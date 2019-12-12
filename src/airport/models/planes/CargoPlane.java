@@ -8,6 +8,17 @@ public class CargoPlane extends Airplane {
         super(planeId);
     }
 
+    @Override
+    public void takeOff() {
+        if (isFlying) {
+            System.out.println("Cargoplane " + planeId + " can not take off, because it is already flying!");
+        } else {
+            System.out.println("Cargoplane " + planeId + " takes off!");
+        }
+        isFlying = true;
+
+    }
+
     public int getMaxCargo() {
         return maxCargo;
     }

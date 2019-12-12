@@ -1,6 +1,6 @@
 package airport.models.planes;
 
-public class Airplane {
+public abstract class Airplane {
     protected String planeId;
     protected boolean isFlying;
     protected int cruiseSpeed;
@@ -53,14 +53,7 @@ public class Airplane {
 //    }
 
     // take off
-    public void takeOff() {
-        if (isFlying) {
-            System.out.println("Airplane " + planeId + " can not take off, because it is already flying!");
-        } else {
-            System.out.println("Airplane " + planeId + " takes off!");
-        }
-        isFlying = true;
-    }
+    public abstract void takeOff();
 
     // land
     public void land() {
