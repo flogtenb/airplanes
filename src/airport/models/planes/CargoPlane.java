@@ -1,4 +1,4 @@
-package airport;
+package airport.models.planes;
 
 public class CargoPlane extends Airplane {
     private int maxCargo = 20;
@@ -29,16 +29,16 @@ public class CargoPlane extends Airplane {
         currentCargo = currentCargo + toLoadCargo;
         if (currentCargo > maxCargo) {
             //print a message explained how many could fit and how many could not.
-            System.out.println("Cargo plane " + planeId + "loads " + toLoadCargo + " cargo");
-            System.out.println("Cargo plane " + planeId + ": " + maxCargo + " could fit, " + (currentCargo - maxCargo) + " could not fit");
+            System.out.println("Cargo plane " + getPlaneId() + "loads " + toLoadCargo + " cargo");
+            System.out.println("Cargo plane " + getPlaneId() + ": " + maxCargo + " could fit, " + (currentCargo - maxCargo) + " could not fit");
         } else {
-            System.out.println("Cargo plane " + planeId + " loads " + toLoadCargo + " cargo");
+            System.out.println("Cargo plane " + getPlaneId() + " loads " + toLoadCargo + " cargo");
 
         }
     }
     // unload cargo
     public void unloadcargo() {
-        System.out.println("Cargo plane " + planeId + " unloads " + currentCargo + " cargo");
+        System.out.println("Cargo plane " + getPlaneId() + " unloads " + currentCargo + " cargo");
         currentCargo = 0;
     }
 
@@ -59,9 +59,9 @@ public class CargoPlane extends Airplane {
         return "CargoPlane{" +
                 "maxCargo=" + maxCargo +
                 ", currentCargo=" + currentCargo +
-                ", planeId='" + planeId + '\'' +
-                ", isFlying=" + isFlying +
-                ", cruiseSpeed=" + cruiseSpeed +
+                ", planeId='" + getPlaneId() + '\'' +
+                ", isFlying=" + isFlying() +
+                ", cruiseSpeed=" + getCruiseSpeed() +
                 '}';
     }
 }

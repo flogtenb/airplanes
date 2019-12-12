@@ -1,4 +1,6 @@
-package airport;
+package airport.models.planes;
+
+import airport.models.planes.Airplane;
 
 public class PeoplePlane extends Airplane {
     private int maxPassengers = 100;
@@ -29,16 +31,16 @@ public class PeoplePlane extends Airplane {
         currentPassengers = currentPassengers + toLoad;
         if (currentPassengers > maxPassengers) {
             //print a message explained how many could fit and how many could not.
-            System.out.println("Airplane " + planeId + "loads " + toLoad + " passengers");
-            System.out.println("Airplane " + planeId + ": " + maxPassengers + " could fit, " + (currentPassengers - maxPassengers) + " could not fit");
+            System.out.println("Airplane " + getPlaneId() + "loads " + toLoad + " passengers");
+            System.out.println("Airplane " + getPlaneId() + ": " + maxPassengers + " could fit, " + (currentPassengers - maxPassengers) + " could not fit");
         } else {
-            System.out.println("Airplane " + planeId + " loads " + toLoad + " passengers");
+            System.out.println("Airplane " + getPlaneId() + " loads " + toLoad + " passengers");
 
         }
     }
     // unload passengers
     public void unloadPassengers() {
-        System.out.println("Airplane " + planeId + " unloads " + currentPassengers + " passengers");
+        System.out.println("Airplane " + getPlaneId() + " unloads " + currentPassengers + " passengers");
         currentPassengers = 0;
     }
 
@@ -58,9 +60,9 @@ public class PeoplePlane extends Airplane {
         return "PeoplePlane{" +
                 "maxPassengers=" + maxPassengers +
                 ", currentPassengers=" + currentPassengers +
-                ", planeId='" + planeId + '\'' +
-                ", isFlying=" + isFlying +
-                ", cruiseSpeed=" + cruiseSpeed +
+                ", planeId='" + getPlaneId() + '\'' +
+                ", isFlying=" + isFlying() +
+                ", cruiseSpeed=" + getCruiseSpeed() +
                 '}';
     }
 }

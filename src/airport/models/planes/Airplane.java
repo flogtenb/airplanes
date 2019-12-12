@@ -1,16 +1,38 @@
-package airport;
+package airport.models.planes;
 
 public class Airplane {
-    String planeId;
-    boolean isFlying;
-    int cruiseSpeed;
+    protected String planeId;
+    protected boolean isFlying;
+    protected int cruiseSpeed;
 
     public Airplane(String planeId) {
         this.planeId = planeId;
         System.out.println("Airplane " + planeId);
     }
 
+    public String getPlaneId() {
+        return planeId;
+    }
 
+//    public void setPlaneId(String planeId) {
+//        this.planeId = planeId;
+//    }
+
+    public boolean isFlying() {
+        return isFlying;
+    }
+
+    public void setFlying(boolean flying) {
+        isFlying = flying;
+    }
+
+    public int getCruiseSpeed() {
+        return cruiseSpeed;
+    }
+
+    public void setCruiseSpeed(int cruiseSpeed) {
+        this.cruiseSpeed = cruiseSpeed;
+    }
 //    //load passengers with number of passengers
 //    public void loadPassengers(int toLoad) {
 //        currentPassengers = currentPassengers + toLoad;
