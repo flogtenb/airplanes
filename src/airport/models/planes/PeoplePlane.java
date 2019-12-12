@@ -10,6 +10,11 @@ public class PeoplePlane extends Airplane {
         super(planeId);
     }
 
+    @Override
+    public void takeOff() {
+        
+    }
+
     public int getMaxPassengers() {
         return maxPassengers;
     }
