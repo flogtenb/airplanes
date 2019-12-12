@@ -1,0 +1,67 @@
+package airport;
+
+public class CargoPlane extends Airplane {
+    private int maxCargo = 20;
+    private int currentCargo;
+
+    public CargoPlane(String planeId) {
+        super(planeId);
+    }
+
+    public int getMaxCargo() {
+        return maxCargo;
+    }
+
+    public void setMaxCargo(int maxCargo) {
+        this.maxCargo = maxCargo;
+    }
+
+    public int getCurrentCargo() {
+        return currentCargo;
+    }
+
+    public void setCurrentCargo(int currentCargo) {
+        this.currentCargo = currentCargo;
+    }
+
+    //load cargo with
+    public void loadCargo(int toLoadCargo) {
+        currentCargo = currentCargo + toLoadCargo;
+        if (currentCargo > maxCargo) {
+            //print a message explained how many could fit and how many could not.
+            System.out.println("Cargo plane " + planeId + "loads " + toLoadCargo + " cargo");
+            System.out.println("Cargo plane " + planeId + ": " + maxCargo + " could fit, " + (currentCargo - maxCargo) + " could not fit");
+        } else {
+            System.out.println("Cargo plane " + planeId + " loads " + toLoadCargo + " cargo");
+
+        }
+    }
+    // unload cargo
+    public void unloadcargo() {
+        System.out.println("Cargo plane " + planeId + " unloads " + currentCargo + " cargo");
+        currentCargo = 0;
+    }
+
+    @Override
+    public boolean isAvailable() {
+        boolean isAvailable = super.isAvailable();
+        System.out.println("isAvailable van CargoPlane");
+        if (isAvailable && this.currentCargo < this.maxCargo) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    @Override
+    public String toString() {
+        return "CargoPlane{" +
+                "maxCargo=" + maxCargo +
+                ", currentCargo=" + currentCargo +
+                ", planeId='" + planeId + '\'' +
+                ", isFlying=" + isFlying +
+                ", cruiseSpeed=" + cruiseSpeed +
+                '}';
+    }
+}
