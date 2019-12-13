@@ -14,10 +14,6 @@ public abstract class Airplane {
         return planeId;
     }
 
-//    public void setPlaneId(String planeId) {
-//        this.planeId = planeId;
-//    }
-
     public boolean isFlying() {
         return isFlying;
     }
@@ -56,35 +52,21 @@ public abstract class Airplane {
     public abstract void takeOff();
 
     // land
-    public void land() {
-        if (isFlying) {
-            System.out.println("Airplane " + planeId + " lands!");
-        } else {
-            System.out.println("Airplane  " + planeId + " can not land, because we are still on the ground!");
-        }
-        isFlying = false;
-    }
+    public abstract void land();
 
     // is vliegtuig available? true or false
     // available betekent: niet aan het vliegen en er is nog plek
-    public boolean isAvailable() {
-          if (!this.isFlying) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+    public abstract boolean isAvailable();
+//    dit stukje naar CargoPlane en PeoplePlane
+//    {
+//          if (!this.isFlying) {
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    }
     public String toString(){
         return "planeId: '" + this.planeId + "', flying: '" + this.isFlying;
     }
 
 }
-//    For Day 2
-//        If-Else, Switch, Arrays and Looping
-//
-//        Assignment 1: Expands the airplane class with if-else statements in the methods.
-//        For loading passengers there must be no more than the maximum that can sit in the plane,
-//        if the amount of passengers fits: print a normal loading message, if the amount does not fit,
-//        print a message explained how many could fit and how many could not.
-//        Before taking off,  first check whether the aircraft is not flying at the moment,
-//        for landing the other way around. Also print relevant messages here.

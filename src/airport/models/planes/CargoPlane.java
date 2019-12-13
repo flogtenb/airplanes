@@ -1,6 +1,6 @@
 package airport.models.planes;
 
-public class CargoPlane extends Airplane {
+public class CargoPlane extends Airplane implements PropellerMotor {
     private int maxCargo = 20;
     private int currentCargo;
 
@@ -17,6 +17,16 @@ public class CargoPlane extends Airplane {
         }
         isFlying = true;
 
+    }
+
+    @Override
+    public void land() {
+        if (isFlying) {
+            System.out.println("Cargoplane " + planeId + " lands!");
+        } else {
+            System.out.println("Cargoplane  " + planeId + " can not land, because we are still on the ground!");
+        }
+        isFlying = false;
     }
 
     public int getMaxCargo() {
@@ -55,11 +65,12 @@ public class CargoPlane extends Airplane {
 
     @Override
     public boolean isAvailable() {
-        boolean isAvailable = super.isAvailable();
-        System.out.println("isAvailable van CargoPlane");
-        if (isAvailable && this.currentCargo < this.maxCargo) {
+        //boolean isAvailable = super.isAvailable();
+        if (!isFlying() && this.currentCargo < this.maxCargo) {
+            System.out.println("Cargoplane " + planeId + " is available");
             return true;
         } else {
+            System.out.println("Cargoplane " + planeId + " is not available");
             return false;
         }
 
@@ -74,5 +85,10 @@ public class CargoPlane extends Airplane {
                 ", isFlying=" + isFlying() +
                 ", cruiseSpeed=" + getCruiseSpeed() +
                 '}';
+    }
+
+    @Override
+    public void turningPropeller() {
+        System.out.println("Cargoplane: " + planeId  + " Turning propeller.");
     }
 }
